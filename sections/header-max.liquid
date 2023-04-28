@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="{{ 'test.css' | asset_url }}" media="print" onload="this.media='all'">
+{% assign menu = linklist.main-menu %}
+{{ menu.title }}: {{ menu.levels }}
+
+{% for link in linklists.main-menu.links %}
+    <p>{{ link.title }}</p>
+{% endfor %}
+{{ linklists.main-menu.title }}
+
+
+<nav>
+    <ul>
+        <li>TESTje</li>
+        
+    </ul>
+
+
+</nav>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "header",
+  "class": "header",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Header",
+      "options": [
+        {
+          "value": "test",
+          "label": "Testing"
+        }
+      ]
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "t:sections.header.settings.menu.label"
+    }
+  ]
+}
+{% endschema %}
